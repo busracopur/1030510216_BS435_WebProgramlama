@@ -11,30 +11,39 @@ function App() {
   }
 
   function handleInputChange(event) {
-    setUserGuess(event.target.value);
+  
+      const userInput = event.target.value;
+      console.log('userInput:', userInput);
+      setUserGuess(userInput);
   }
 
   function handleGuess() {
     const guess = parseInt(userGuess, 10);
-
-    if () {
-      setMessage('Lütfen geçerli bir sayı girin.');
-      return;
-    }
-
-    if () {
-      setMessage('Tebrikler! Doğru tahmin!');
-    } else {
-
-    }
+      if (isNaN(guess)) {
+          setMessage('Lütfen geçerli bir sayı girin.');
+      }
+      else {
+          if (guess === targetNumber) {
+              setMessage('Tebrikler! Doğru tahmin!');
+          } else if (guess < targetNumber) {
+              setMessage('Daha büyük bir sayı deneyin.');
+          } else {
+              setMessage('Daha küçük bir sayı deneyin.');
+          }
+      }
   }
+
+    console.log('guess:', userGuess);
 
   return (
       <div className="App">
-        <h1>Sayı Tahmin Oyunu</h1>
+        <h1>Tahmin Oyunu</h1>
         <p>{message}</p>
         <input
             placeholder="Bir sayı girin"
+            type="text"
+            value={userGuess}
+            onChange={handleInputChange}
         />
         <button onClick={handleGuess}>Tahmin Et</button>
       </div>
