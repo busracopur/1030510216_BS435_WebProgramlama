@@ -20,32 +20,34 @@ function App() {
   function handleGuess() {
     const guess = parseInt(userGuess, 10);
       if (isNaN(guess)) {
-          setMessage('Lütfen geçerli bir sayı girin.');
+          setMessage('Please enter a valid number!');
       }
       else {
           if (guess === targetNumber) {
-              setMessage('Tebrikler! Doğru tahmin!');
+              setMessage('Congratulations correct guess!');
           } else if (guess < targetNumber) {
-              setMessage('Daha büyük bir sayı deneyin.');
+              setMessage('Try a larger number.');
           } else {
-              setMessage('Daha küçük bir sayı deneyin.');
+              setMessage('Try a smaller number.');
           }
       }
   }
 
     console.log('guess:', userGuess);
 
+
+
   return (
       <div className="App">
-        <h1>Tahmin Oyunu</h1>
+        <h1>Guess Game</h1>
         <p>{message}</p>
         <input
-            placeholder="Bir sayı girin"
+            placeholder="Enter a number"
             type="text"
             value={userGuess}
             onChange={handleInputChange}
         />
-        <button onClick={handleGuess}>Tahmin Et</button>
+        <button onClick={handleGuess}>Guess</button>
       </div>
   );
 }
