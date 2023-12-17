@@ -39,7 +39,7 @@ function App() {
 
   return (
       <div className="App">
-        <h1>Guess Game</h1>
+        <h1>Guess</h1>
         <p>{message}</p>
         <input
             placeholder="Enter a number"
