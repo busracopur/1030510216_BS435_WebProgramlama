@@ -20,7 +20,7 @@ function App() {
   function handleGuess() {
     const guess = parseInt(userGuess, 10);
       if (isNaN(guess)) {
-          setMessage('Please enter a valid number!');
+          setMessage(' enter a valid number!');
       }
       else {
           if (guess === targetNumber) {
